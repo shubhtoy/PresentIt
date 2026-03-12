@@ -1,0 +1,19 @@
+{
+  "name": "presenter-overlay",
+  "version": "0.1.0",
+  "description": "Minimal presenter overlay with Flespi MQTT markdown",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^41.0.0",
+    "highlight.js": "^11.11.1",
+    "markdown-it": "^14.1.1",
+    "markdown-it-task-lists": "^2.1.1",
+    "mqtt": "^5.15.0",
+    "sanitize-html": "^2.17.1"
+  }
+}
