@@ -52,7 +52,6 @@ body {
   width: 22px;
   height: 100%;
   border-right: 1px solid rgba(255, 255, 255, 0.06);
-  cursor: grab;
 }
 
 .side-panel {
@@ -81,7 +80,6 @@ body {
   border-radius: 10px;
   background: var(--pill-bg);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  cursor: grab;
 }
 
 .panel-head button {
@@ -109,10 +107,6 @@ select {
   color: var(--text);
   border-radius: 10px;
   padding: 6px 10px;
-}
-
-button {
-  cursor: pointer;
 }
 
 .secondary-button {
@@ -498,7 +492,6 @@ input[type="range"] {
   border-right: 2px solid rgba(255, 255, 255, 0.6);
   border-bottom: 2px solid rgba(255, 255, 255, 0.6);
   border-bottom-right-radius: 4px;
-  cursor: nwse-resize;
 }
 
 .connect-sheet small {
