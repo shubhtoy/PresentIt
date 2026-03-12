@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:;"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presenter Overlay</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="overlay-root" id="overlayRoot">
+      <div class="drag-rail" aria-hidden="true" title="Drag to move"></div>
+
+      <section class="content-shell" id="contentShell">
+        <article class="markdown-view" id="markdownView">
+          <div class="stream-head">
+            <div>
+              <p class="stream-kicker">Session feed</p>
+              <h1>Messages</h1>
+            </div>
+            <button id="clearMessagesButton" class="secondary-button" type="button">Clear</button>
+          </div>
+
+          <div class="message-list" id="messageList">
+            <div class="empty-state" id="emptyState">
+              <p>Waiting for your first markdown message.</p>
+              <small>Incoming messages will appear here as a scrollable session timeline.</small>
+            </div>
+          </div>
+        </article>
+
+        <aside class="side-panel" id="sidePanel">
+          <div class="panel-head">
+            <strong>Overlay</strong>
+            <button id="hidePanelButton" type="button">Hide</button>
+          </div>
+
+          <div class="panel-group">
+            <button id="editButton" type="button">Source</button>
+            <button id="lockButton" type="button" data-locked="false">Unlocked</button>
+            <button id="clickThroughButton" type="button">Click-through Off</button>
+            <select id="positionPreset" aria-label="Position preset">
+              <option value="top-left">Top Left</option>
+              <option value="top-center" selected>Top Center</option>
+              <option value="top-right">Top Right</option>
+              <option value="bottom-center">Bottom Center</option>
+            </select>
+            <label class="range-field">
+              <span>Opacity</span>
+              <strong id="opacityValue">85%</strong>
+              <input id="opacityInput" type="range" min="0.5" max="1" step="0.01" value="0.85" />
+            </label>
+            <label class="range-field">
+              <span>Text size</span>
+              <strong id="fontSizeValue">24px</strong>
+              <input id="fontSizeInput" type="range" min="12" max="40" step="1" value="24" />
+            </label>
+            <span id="stateBadge" class="state offline">Offline</span>
+            <small class="shortcut-note" id="shortcutNote">Click-through shortcut: Cmd/Ctrl+Shift+.</small>
+          </div>
+
+          <section class="connect-sheet" id="connectSheet">
+            <div class="source-head">
+              <h1>Source</h1>
+              <button id="closeSourceButton" type="button">Close</button>
+            </div>
+            <p>Enter Flespi details and start streaming markdown.</p>
+            <label>
+              Flespi token
+              <input id="tokenInput" type="password" placeholder="Flespi token" autocomplete="off" />
+            </label>
+            <label>
+              MQTT topic
+              <input id="topicInput" type="text" placeholder="overlay/presenter/markdown" autocomplete="off" />
+            </label>
+            <button id="connectButton" type="button">Connect</button>
+            <small id="connectHint">Saved locally in this app for the next launch on this machine.</small>
+          </section>
+        </aside>
+
+        <button id="showPanelButton" class="show-panel" type="button">Controls</button>
+      </section>
+
+      <div id="resizeHandle" class="resize-handle" title="Drag to resize" aria-hidden="true"></div>
+
+      <div class="toast" id="toast" aria-live="polite"></div>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>
